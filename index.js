@@ -20,19 +20,55 @@ async function loadMainPrompts() {
             message: "What would you like to do?",
             choices: [
                 {
-                    name: "view all emp", 
+                    name: "View All Employees",
                     value: "VIEW_EMPLOYEES"
                 },
                 {
-                    name: "test2", 
+                    name: "View All Employees By Department",
                     value: "VIEW_EMPLOYEES"
                 },
                 {
-                    name: "test3", 
+                    name: "View All Employees By Manager",
                     value: "VIEW_EMPLOYEES"
                 },
                 {
-                    name: "test4", 
+                    name: "Add Employee",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "Remove Employee",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "Update Employee Role",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "Update Employee Manager",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "View All Roles",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "Add Role",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "Remove Role",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "View All Departments",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "Add Department",
+                    value: "VIEW_EMPLOYEES"
+                },
+                {
+                    name: "Remove Department",
                     value: "VIEW_EMPLOYEES"
                 },
                 
