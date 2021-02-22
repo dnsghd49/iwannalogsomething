@@ -25,51 +25,51 @@ async function loadMainPrompts() {
                 },
                 {
                     name: "View All Employees By Department",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "View All Employees By Manager",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "Add Employee",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "Remove Employee",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "Update Employee Role",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "Update Employee Manager",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "View All Roles",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "Add Role",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "Remove Role",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "View All Departments",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "Add Department",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 {
                     name: "Remove Department",
-                    value: "VIEW_EMPLOYEES"
+                    value: ""
                 },
                 
             ]
