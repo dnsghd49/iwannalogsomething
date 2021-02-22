@@ -1,7 +1,7 @@
 const { prompt } = require("inquirer");
 const logo = require("asciiart-logo");
-//const db = require("./db");
-//require("console.table");
+const db = require("./db");
+require("console.table");
 
 run();
 
@@ -74,9 +74,20 @@ async function loadMainPrompts() {
                 
             ]
         }
-    ])
+    ]);
 
     switch (choice) {
         case "VIEW_EMPLOYEES":
+            return viewEmployees();
     }
+}
+
+
+async function viewEmployees(){
+    const employee = await db.findAllEmp();
+
+    console.log("\n");
+    console.table(employee);
+
+    loadMainPrompts();
 }
