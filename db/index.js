@@ -85,6 +85,10 @@ addNewRole(role) {
   return this.connection.query("INSERT INTO role SET ?", role);
 }
 
+rmRole(roleId) {
+  return this.connection.query("DELETE FROM role WHERE id = ?", roleId);
+}
+
 
 }
 

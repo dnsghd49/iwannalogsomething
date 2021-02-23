@@ -71,7 +71,7 @@ async function loadMainPrompts() {
                     name: "Remove Department",
                     value: "REMOVE_DEPARTMENT"
                 },
-                
+
             ]
         }
     ]);
@@ -127,12 +127,12 @@ async function viewByDepartment() {
 
     const { departmentId } = await prompt([
         {
-          type: "list",
-          name: "departmentId",
-          message: "Which department would you like to see employees for?",
-          choices: departmentChoices
+            type: "list",
+            name: "departmentId",
+            message: "Which department would you like to see employees for?",
+            choices: departmentChoices
         }
-      ]);
+    ]);
 
     const employees = await db.findAllEmployeesByDepartment(departmentId);
 
@@ -145,7 +145,7 @@ async function viewByDepartment() {
 // Function to show employees under selected manager by their first and last name
 async function viewByManager() {
     const managers = await db.findAllEmp();
-    
+
     const managerChoices = managers.map(({ id, first_name, last_name }) => ({
         name: `${first_name} ${last_name}`,
         value: id
@@ -153,21 +153,21 @@ async function viewByManager() {
 
     const { managerId } = await prompt([
         {
-          type: "list",
-          name: "managerId",
-          message: "Which employee do you want to see direct reports for?",
-          choices: managerChoices
+            type: "list",
+            name: "managerId",
+            message: "Which employee do you want to see direct reports for?",
+            choices: managerChoices
         }
     ]);
 
-    const employees = await db. findAllEmpByManager(managerId);
+    const employees = await db.findAllEmpByManager(managerId);
 
     console.log("\n");
 
     // If statement for displaying error when user selects regualr employee" 
     if (employees.length === 0) {
         console.log("The selected employee has no direct reports");
-      } else {
+    } else {
         console.table(employees);
     }
 
@@ -175,56 +175,56 @@ async function viewByManager() {
 }
 
 // Function for add more employees
-async function addEmp () {
+async function addEmp() {
     const employees = await db.findAllEmp();
     const roles = await db.findAllRoles();
 
     const employee = await prompt([
-      {
-        name: "first_name",
-        message: "What is the employee's first name?"
-      },
-      {
-        name: "last_name",
-        message: "What is the employee's last name?"
-      }
+        {
+            name: "first_name",
+            message: "What is the employee's first name?"
+        },
+        {
+            name: "last_name",
+            message: "What is the employee's last name?"
+        }
     ]);
-  
+
     const roleChoices = roles.map(({ id, title }) => ({
         name: title,
         value: id
     }));
-  
+
     const { roleId } = await prompt({
         type: "list",
         name: "roleId",
         message: "What is the employee's role?",
         choices: roleChoices
     });
-  
+
     employee.role_id = roleId;
-  
+
     const managerChoices = employees.map(({ id, first_name, last_name }) => ({
         name: `${first_name} ${last_name}`,
         value: id
     }));
     managerChoices.unshift({ name: "None", value: null });
-  
+
     const { managerId } = await prompt({
         type: "list",
         name: "managerId",
         message: "Who is the employee's manager?",
         choices: managerChoices
     });
-  
+
     employee.manager_id = managerId;
-  
+
     await db.addEmployee(employee);
-  
+
     console.log(
-      `Added ${employee.first_name} ${employee.last_name} to the database`
+        `Added ${employee.first_name} ${employee.last_name} to the database`
     );
-  
+
     loadMainPrompts();
 }
 
@@ -238,14 +238,14 @@ async function removeEmp() {
         value: id
     }));
 
-  const { employeeId } = await prompt([
-    {
-      type: "list",
-      name: "employeeId",
-      message: "Which employee do you want to remove?",
-      choices: employeeChoices
-    }
-  ]);
+    const { employeeId } = await prompt([
+        {
+            type: "list",
+            name: "employeeId",
+            message: "Which employee do you want to remove?",
+            choices: employeeChoices
+        }
+    ]);
 
     await db.removeEmp(employeeId);
 
@@ -261,7 +261,7 @@ async function updateRole() {
     const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
         name: `${first_name} ${last_name}`,
         value: id
-      }));
+    }));
 
     const { employeeId } = await prompt([
         {
@@ -279,7 +279,7 @@ async function updateRole() {
         value: id
     }));
 
-    const { roleId } = await prompt ([
+    const { roleId } = await prompt([
         {
             type: "list",
             name: "roleId",
@@ -308,12 +308,12 @@ async function updateManager() {
 
     const { employeeId } = await prompt([
         {
-          type: "list",
-          name: "employeeId",
-          message: "Which employee's manager do you want to update?",
-          choices: employeeChoices
+            type: "list",
+            name: "employeeId",
+            message: "Which employee's manager do you want to update?",
+            choices: employeeChoices
         }
-      ]);
+    ]);
 
 
     const managers = await db.findAllManagers(employeeId);
@@ -325,12 +325,12 @@ async function updateManager() {
 
     const { managerId } = await prompt([
         {
-          type: "list",
-          name: "managerId",
-          message: "Which manager do you want to set as manager for the selected employee?",
-          choices: managerChoices
+            type: "list",
+            name: "managerId",
+            message: "Which manager do you want to set as manager for the selected employee?",
+            choices: managerChoices
         }
-      ]);
+    ]);
 
 
     await db.updateEmpManager(employeeId, managerId);
@@ -347,7 +347,7 @@ async function viewRoles() {
 
     console.log("\n");
     console.table(roles);
-  
+
     loadMainPrompts();
 }
 
@@ -359,22 +359,22 @@ async function addRole() {
     const departmentChoices = departments.map(({ id, name }) => ({
         name: name,
         value: id
-      }));
+    }));
 
     const role = await prompt([
         {
-          name: "title",
-          message: "What is the name of the role?"
+            name: "title",
+            message: "What is the name of the role?"
         },
         {
-          name: "salary",
-          message: "What is the salary of the role?"
+            name: "salary",
+            message: "What is the salary of the role?"
         },
         {
-          type: "list",
-          name: "department_id",
-          message: "Which department does the role belong to?",
-          choices: departmentChoices
+            type: "list",
+            name: "department_id",
+            message: "Which department does the role belong to?",
+            choices: departmentChoices
         }
     ]);
 
@@ -385,16 +385,25 @@ async function addRole() {
     loadMainPrompts();
 }
 
-/*
+
 async function removeRole() {
-    const employees = await db.findAllEmp();
+    const roles = await db.findAllRoles();
+    const roleChoices = roles.map(({ id, title }) => ({
+        name: title,
+        value: id
+    }));
 
 
-
-    const employee = await prompt([
+    const { roleId } = await prompt([
+        {
+            type: "list",
+            name: "roleId",
+            message: "Which role do you want to remove? (Warning: This will also remove employees)",
+            choices: roleChoices
+        }
     ]);
 
-    await db.something();
+    await db.rmRole(roleId);
 
     console.log();
 
@@ -402,6 +411,7 @@ async function removeRole() {
 }
 
 
+/*
 async function showDepartments() {
     const employees = await db.findAllEmp();
 
@@ -431,6 +441,6 @@ async function addDepartment() {
     console.log();
 
     loadMainPrompts();
-} 
+}
 
 */
