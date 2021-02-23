@@ -92,17 +92,17 @@ async function loadMainPrompts() {
         case "UPDATE_MANAGER":
             return updateManager();
         case "VIEW_ALL_ROLES":
-            return ;
+            return viewRoles();
         case "ADD_ROLE":
-            return ;
+            return addRole();
         case "REMOVE_ROLE":
-            return ;
+            return removeRole();
         case "ALL_DEPARTMENTS":
-            return ;
+            return showDepartments();
         case "ADD_DEPARTMENT":
-            return ;
-        case "":
-            return ;
+            return addDepartment();
+        case "REMOVE_DEPARTMENT":
+            return removeDepartment();
     }
 }
 
@@ -341,9 +341,19 @@ async function updateManager() {
 }
 
 
+
+async function viewRoles() {
+    const roles = await db.findAllRoles();
+
+    console.log("\n");
+    console.table(roles);
+  
+    loadMainPrompts();
+}
+
 /*
-async function helloworld() {
-    const  = await db.findAllEmp();
+async function addRole() {
+    const employees = await db.findAllEmp();
 
 
 
@@ -355,4 +365,54 @@ async function helloworld() {
     console.log();
 
     loadMainPrompts();
-} */
+}
+
+
+async function removeRole() {
+    const employees = await db.findAllEmp();
+
+
+
+    const employee = await prompt([
+    ]);
+
+    await db.something();
+
+    console.log();
+
+    loadMainPrompts();
+}
+
+
+async function showDepartments() {
+    const employees = await db.findAllEmp();
+
+
+
+    const employee = await prompt([
+    ]);
+
+    await db.something();
+
+    console.log();
+
+    loadMainPrompts();
+}
+
+
+async function addDepartment() {
+    const employees = await db.findAllEmp();
+
+
+
+    const employee = await prompt([
+    ]);
+
+    await db.something();
+
+    console.log();
+
+    loadMainPrompts();
+} 
+
+*/
