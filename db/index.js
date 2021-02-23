@@ -60,7 +60,7 @@ findAllRoles() {
   )
 }
 
-updateEmpRole() {
+updateEmpRole(employeeId, roleId) {
   return this.connection.query(
     "UPDATE employee SET role_id = ? WHERE id = ?",
     [roleId, employeeId]
