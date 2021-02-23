@@ -87,19 +87,19 @@ async function loadMainPrompts() {
             return addEmp();
         case "REMOVE_EMPLOYEE":
             return removeEmp();
-        case "":
+        case "UPDATE_ROLE":
+            return updateRole();
+        case "UPDATE_MANAGER":
+            return updateManager();
+        case "VIEW_ALL_ROLES":
             return ;
-        case "":
+        case "ADD_ROLE":
             return ;
-        case "":
+        case "REMOVE_ROLE":
             return ;
-        case "":
+        case "ALL_DEPARTMENTS":
             return ;
-        case "":
-            return ;
-        case "":
-            return ;
-        case "":
+        case "ADD_DEPARTMENT":
             return ;
         case "":
             return ;
@@ -253,3 +253,66 @@ async function removeEmp() {
 
     loadMainPrompts();
 }
+
+// Function to update employee roles
+async function updateRole() {
+    const employees = await db.findAllEmp();
+
+    const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
+        name: `${first_name} ${last_name}`,
+        value: id
+      }));
+
+    const { employeeId } = await prompt([
+        {
+            type: "list",
+            name: "employeeId",
+            message: "Which employee's role do you want to update?",
+            choices: employeeChoices
+        }
+    ]);
+
+    const roles = await db.findAllRoles();
+
+    const roleChoices = roles.map(({ id, title }) => ({
+        name: title,
+        value: id
+    }));
+
+    const { roleId } = await prompt ([
+        {
+            type: "list",
+            name: "roleId",
+            message: "Which role do you want to assign the selected employee?",
+            choices: roleChoices
+        }
+    ]);
+
+    await db.updateRole(employeeId, roleId);
+
+    console.log("Updated employee's role");
+
+    loadMainPrompts();
+}
+
+
+
+// Function to update manager 
+async function updateManager() {const employees = await db.findAllEmp();}
+
+
+/*
+async function helloworld() {
+    const  = await db.findAllEmp();
+
+
+
+    const employee = await prompt([
+    ]);
+
+    await db.something();
+
+    console.log();
+
+    loadMainPrompts();
+} */
