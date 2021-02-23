@@ -67,10 +67,19 @@ updateEmpRole(employeeId, roleId) {
   );
 }
 
+updateEmpManager () {
+  return this.connection.query(
+    "SELECT role.id, role.title, department.name AS department, role.salary FROM role LEFT JOIN department on role.department_id = department.id;"
+  );
+}
 
 
-
-
+findAllManagers(employeeId) {
+  return this.connection.query(
+    "SELECT id, first_name, last_name FROM employee WHERE id != ?",
+    employeeId
+  );
+}
 
 
 

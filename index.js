@@ -298,7 +298,47 @@ async function updateRole() {
 
 
 // Function to update manager 
-async function updateManager() {const employees = await db.findAllEmp();}
+async function updateManager() {
+    const employees = await db.findAllEmp();
+
+    const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
+        name: `${first_name} ${last_name}`,
+        value: id
+    }));
+
+    const { employeeId } = await prompt([
+        {
+          type: "list",
+          name: "employeeId",
+          message: "Which employee's manager do you want to update?",
+          choices: employeeChoices
+        }
+      ]);
+
+
+    const managers = await db.findAllManagers(employeeId);
+
+    const managerChoices = managers.map(({ id, first_name, last_name }) => ({
+        name: `${first_name} ${last_name}`,
+        value: id
+    }));
+
+    const { managerId } = await prompt([
+        {
+          type: "list",
+          name: "managerId",
+          message: "Which manager do you want to set as manager for the selected employee?",
+          choices: managerChoices
+        }
+      ]);
+
+
+    await db.updateEmpManager(employeeId, managerId);
+
+    console.log("Assigned to New Manager");
+
+    loadMainPrompts();
+}
 
 
 /*
