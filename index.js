@@ -71,7 +71,10 @@ async function loadMainPrompts() {
                     name: "Remove Department",
                     value: "REMOVE_DEPARTMENT"
                 },
-
+                {
+                    name: "Exit",
+                    value: "EXIT"
+                }
             ]
         }
     ]);
@@ -103,6 +106,8 @@ async function loadMainPrompts() {
             return addDepartment();
         case "REMOVE_DEPARTMENT":
             return removeDepartment();
+        case "EXIT":
+            return exit();
     }
 }
 
@@ -335,7 +340,7 @@ async function updateManager() {
 
     await db.updateEmpManager(employeeId, managerId);
 
-    console.log("Assigned to New Manager");
+    console.log("Assigned to a New Manager");
 
     loadMainPrompts();
 }
@@ -461,4 +466,9 @@ async function removeDepartment() {
     console.log(`Removed department from the database`);
 
     loadMainPrompts();
+}
+
+function exit() {
+    console.log("Peace Out!");
+    process.exit();
 }
