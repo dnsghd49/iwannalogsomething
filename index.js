@@ -341,7 +341,7 @@ async function updateManager() {
 }
 
 
-
+// Function to view all roles
 async function viewRoles() {
     const roles = await db.findAllRoles();
 
@@ -351,23 +351,41 @@ async function viewRoles() {
     loadMainPrompts();
 }
 
-/*
+
+// Function to add role
 async function addRole() {
-    const employees = await db.findAllEmp();
+    const departments = await db.findAllDepartments();
 
+    const departmentChoices = departments.map(({ id, name }) => ({
+        name: name,
+        value: id
+      }));
 
-
-    const employee = await prompt([
+    const role = await prompt([
+        {
+          name: "title",
+          message: "What is the name of the role?"
+        },
+        {
+          name: "salary",
+          message: "What is the salary of the role?"
+        },
+        {
+          type: "list",
+          name: "department_id",
+          message: "Which department does the role belong to?",
+          choices: departmentChoices
+        }
     ]);
 
-    await db.something();
+    await db.addNewRole(role);
 
-    console.log();
+    console.log(`Added ${role.title} to the database`);
 
     loadMainPrompts();
 }
 
-
+/*
 async function removeRole() {
     const employees = await db.findAllEmp();
 

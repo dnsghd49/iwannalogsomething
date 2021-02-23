@@ -81,7 +81,9 @@ findAllManagers(employeeId) {
   );
 }
 
-
+addNewRole(role) {
+  return this.connection.query("INSERT INTO role SET ?", role);
+}
 
 
 }
