@@ -21,73 +21,85 @@ class DB {
     );
   }
 
-findAllEmployeesByDepartment(departmentId) {
-  return this.connection.query(
-    "SELECT employee.id, employee.first_name, employee.last_name, role.title FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department department on role.department_id = department.id WHERE department.id = ?;",
-    departmentId
-  );
-}
+  findAllEmployeesByDepartment(departmentId) {
+    return this.connection.query(
+      "SELECT employee.id, employee.first_name, employee.last_name, role.title FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department department on role.department_id = department.id WHERE department.id = ?;",
+      departmentId
+    );
+  }
 
-findAllEmpByManager(managerId) {
-  return this.connection.query(
-    "SELECT employee.id, employee.first_name, employee.last_name, department.name AS department, role.title FROM employee LEFT JOIN role on role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id WHERE manager_id = ?;",
-    managerId
-  );
-}
+  findAllEmpByManager(managerId) {
+    return this.connection.query(
+      "SELECT employee.id, employee.first_name, employee.last_name, department.name AS department, role.title FROM employee LEFT JOIN role on role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id WHERE manager_id = ?;",
+      managerId
+    );
+  }
 
-addEmployee(employee) {
-  return this.connection.query(
-    "INSERT INTO employee SET ?", employee
-  );
-}
+  addEmployee(employee) {
+    return this.connection.query(
+      "INSERT INTO employee SET ?", employee
+    );
+  }
 
-findAllRoles() {
-  return this.connection.query(
-    "SELECT role.id, role.title, department.name AS department, role.salary FROM role LEFT JOIN department on role.department_id = department.id;"
-  );
-}
+  findAllRoles() {
+    return this.connection.query(
+      "SELECT role.id, role.title, department.name AS department, role.salary FROM role LEFT JOIN department on role.department_id = department.id;"
+    );
+  }
 
-removeEmp(employeeId) {
-  return this.connection.query(
-    "DELETE FROM employee WHERE id = ?",
-    employeeId
-  );
-}
+  removeEmp(employeeId) {
+    return this.connection.query(
+      "DELETE FROM employee WHERE id = ?",
+      employeeId
+    );
+  }
 
-findAllRoles() {
-  return this.connection.query(
-    "SELECT role.id, role.title, department.name AS department, role.salary FROM role LEFT JOIN department on role.department_id = department.id;", 
-  )
-}
+  findAllRoles() {
+    return this.connection.query(
+      "SELECT role.id, role.title, department.name AS department, role.salary FROM role LEFT JOIN department on role.department_id = department.id;",
+    )
+  }
 
-updateEmpRole(employeeId, roleId) {
-  return this.connection.query(
-    "UPDATE employee SET role_id = ? WHERE id = ?",
-    [roleId, employeeId]
-  );
-}
+  updateEmpRole(employeeId, roleId) {
+    return this.connection.query(
+      "UPDATE employee SET role_id = ? WHERE id = ?",
+      [roleId, employeeId]
+    );
+  }
 
-updateEmpManager () {
-  return this.connection.query(
-    "SELECT role.id, role.title, department.name AS department, role.salary FROM role LEFT JOIN department on role.department_id = department.id;"
-  );
-}
+  updateEmpManager() {
+    return this.connection.query(
+      "SELECT role.id, role.title, department.name AS department, role.salary FROM role LEFT JOIN department on role.department_id = department.id;"
+    );
+  }
 
 
-findAllManagers(employeeId) {
-  return this.connection.query(
-    "SELECT id, first_name, last_name FROM employee WHERE id != ?",
-    employeeId
-  );
-}
+  findAllManagers(employeeId) {
+    return this.connection.query(
+      "SELECT id, first_name, last_name FROM employee WHERE id != ?",
+      employeeId
+    );
+  }
 
-addNewRole(role) {
-  return this.connection.query("INSERT INTO role SET ?", role);
-}
+  addNewRole(role) {
+    return this.connection.query("INSERT INTO role SET ?", role);
+  }
 
-rmRole(roleId) {
-  return this.connection.query("DELETE FROM role WHERE id = ?", roleId);
-}
+  rmRole(roleId) {
+    return this.connection.query("DELETE FROM role WHERE id = ?", roleId);
+  }
+
+  addDpt(department) {
+    return this.connection.query("INSERT INTO department SET ?", department);
+  }
+
+
+  rmDepartment(departmentId) {
+    return this.connection.query(
+      "DELETE FROM department WHERE id = ?",
+      departmentId
+    );
+  }
 
 
 }

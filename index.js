@@ -411,36 +411,54 @@ async function removeRole() {
 }
 
 
-/*
+// Function to show all the departments 
 async function showDepartments() {
-    const employees = await db.findAllEmp();
+    const departments = await db.findAllDepartments();
 
-
-
-    const employee = await prompt([
-    ]);
-
-    await db.something();
-
-    console.log();
+    console.log("\n");
+    console.table(departments);
 
     loadMainPrompts();
 }
 
-
+// Funtion to add a department
 async function addDepartment() {
-    const employees = await db.findAllEmp();
-
-
-
-    const employee = await prompt([
+    const department = await prompt([
+        {
+            name: "name",
+            message: "What is the name of the department?"
+        }
     ]);
 
-    await db.something();
+    await db.addDpt(department);
 
-    console.log();
+    console.log(`Added ${department.name} to the database`);
 
     loadMainPrompts();
 }
 
-*/
+
+
+// Function to remove a department
+async function removeDepartment() {
+    const departments = await db.findAllDepartments();
+
+    const departmentChoices = departments.map(({ id, name }) => ({
+        name: name,
+        value: id
+      }));
+
+
+    const { departmentId } = await prompt({
+        type: "list",
+        name: "departmentId",
+        message: "Which department would you like to remove? (Warning: This will also remove associated roles and employees)",
+        choices: departmentChoices
+    });
+
+    await db.rmDepartment(departmentId);
+
+    console.log(`Removed department from the database`);
+
+    loadMainPrompts();
+}
