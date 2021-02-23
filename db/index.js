@@ -47,7 +47,12 @@ findAllRoles() {
   );
 }
 
-
+removeEmp(employeeId) {
+  return this.connection.query(
+    "DELETE FROM employee WHERE id = ?",
+    employeeId
+  );
+}
 
 
 

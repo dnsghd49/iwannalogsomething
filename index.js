@@ -45,31 +45,31 @@ async function loadMainPrompts() {
                 },
                 {
                     name: "Update Employee Manager",
-                    value: ""
+                    value: "UPDATE_MANAGER"
                 },
                 {
                     name: "View All Roles",
-                    value: ""
+                    value: "VIEW_ALL_ROLES"
                 },
                 {
                     name: "Add Role",
-                    value: ""
+                    value: "ADD_ROLE"
                 },
                 {
                     name: "Remove Role",
-                    value: ""
+                    value: "REMOVE_ROLE"
                 },
                 {
                     name: "View All Departments",
-                    value: ""
+                    value: "ALL_DEPARTMENTS"
                 },
                 {
                     name: "Add Department",
-                    value: ""
+                    value: "ADD_DEPARTMENT"
                 },
                 {
                     name: "Remove Department",
-                    value: ""
+                    value: "REMOVE_DEPARTMENT"
                 },
                 
             ]
@@ -87,6 +87,18 @@ async function loadMainPrompts() {
             return addEmp();
         case "REMOVE_EMPLOYEE":
             return removeEmp();
+        case "":
+            return ;
+        case "":
+            return ;
+        case "":
+            return ;
+        case "":
+            return ;
+        case "":
+            return ;
+        case "":
+            return ;
         case "":
             return ;
         case "":
@@ -217,3 +229,27 @@ async function addEmp () {
 }
 
 
+// Function for removing employee by selecting their name
+async function removeEmp() {
+    const employees = await db.findAllEmp();
+
+    const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
+        name: `${first_name} ${last_name}`,
+        value: id
+    }));
+
+  const { employeeId } = await prompt([
+    {
+      type: "list",
+      name: "employeeId",
+      message: "Which employee do you want to remove?",
+      choices: employeeChoices
+    }
+  ]);
+
+    await db.removeEmp(employeeId);
+
+    console.log("Removed employee from the database");
+
+    loadMainPrompts();
+}
