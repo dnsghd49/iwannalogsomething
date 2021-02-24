@@ -1,8 +1,8 @@
 # Employee Tracker
-  [![GitHub contributors](https://img.shields.io/github/contributors/dnsghd49/Employee Tracker.svg)](https://GitHub.com/dnsghd49/iwannalogsomething/graphs/contributors/)
-  [![Build Status](https://img.shields.io/github/forks/dnsghd49/Employee Tracker.svg)](https://github.com/dnsghd49/iwannalogsomething/network/)
-  [![Build Status](https://img.shields.io/github/stars/dnsghd49/Employee Tracker.svg)](https://github.com/dnsghd49/iwannalogsomething/)
-  [![GitHub issues](https://img.shields.io/github/issues/dnsghd49/Employee Tracker.svg)](https://GitHub.com/dnsghd49/iwannalogsomething/issues/)
+  [![GitHub contributors](https://img.shields.io/github/contributors/dnsghd49/iwannalogsomething.svg)](https://GitHub.com/dnsghd49/iwannalogsomething/graphs/contributors/)
+  [![Build Status](https://img.shields.io/github/forks/dnsghd49/iwannalogsomething.svg)](https://github.com/dnsghd49/iwannalogsomething/network/)
+  [![Build Status](https://img.shields.io/github/stars/dnsghd49/iwannalogsomething.svg)](https://github.com/dnsghd49/iwannalogsomething/)
+  [![GitHub issues](https://img.shields.io/github/issues/dnsghd49/iwannalogsomething.svg)](https://GitHub.com/dnsghd49/iwannalogsomething/issues/)
   ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
