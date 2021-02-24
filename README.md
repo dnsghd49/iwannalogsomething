@@ -26,7 +26,7 @@ This command line application is a employee manager using mysql database. The us
 
 ## Screenshot
 
-![ScreenShot](https://raw.github.com/dnsghd49/iwannalogsomething/Ex: tree/main/assets/img/screenshot.png)
+![ScreenShot](https://raw.github.com/dnsghd49/iwannalogsomething/tree/main/assets/img/screenshot.png)
 
 ## Demo Video
 
