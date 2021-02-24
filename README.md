@@ -30,7 +30,7 @@ This command line application is a employee manager using mysql database. The us
 
 ## Demo Video
 
-Video link: 
+Video link: https://youtu.be/EIaw3_DhQnA
 
 ## Installation
 
