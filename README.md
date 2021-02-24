@@ -1,8 +1,8 @@
 # Employee Tracker
-  [![GitHub contributors](https://img.shields.io/github/contributors/dnsghd49/Employee Tracker.svg)](https://GitHub.com/dnsghd49/Employee Tracker/graphs/contributors/)
-  [![Build Status](https://img.shields.io/github/forks/dnsghd49/Employee Tracker.svg)](https://github.com/dnsghd49/Employee Tracker/network/)
-  [![Build Status](https://img.shields.io/github/stars/dnsghd49/Employee Tracker.svg)](https://github.com/dnsghd49/Employee Tracker/)
-  [![GitHub issues](https://img.shields.io/github/issues/dnsghd49/Employee Tracker.svg)](https://GitHub.com/dnsghd49/Employee Tracker/issues/)
+  [![GitHub contributors](https://img.shields.io/github/contributors/dnsghd49/Employee Tracker.svg)](https://GitHub.com/dnsghd49/Employee_Tracker/graphs/contributors/)
+  [![Build Status](https://img.shields.io/github/forks/dnsghd49/Employee Tracker.svg)](https://github.com/dnsghd49/Employee_Tracker/network/)
+  [![Build Status](https://img.shields.io/github/stars/dnsghd49/Employee Tracker.svg)](https://github.com/dnsghd49/Employee_Tracker/)
+  [![GitHub issues](https://img.shields.io/github/issues/dnsghd49/Employee Tracker.svg)](https://GitHub.com/dnsghd49/Employee_Tracker/issues/)
   ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
