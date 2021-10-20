@@ -8,7 +8,7 @@
 
 ## Description
 
-This command line application is a employee manager using mysql database. The user can use the prompts to manage employees.
+This command line application is an employee manager using MySQL database. The user can use the prompts to manage employees.
 
 ## Table of Contents 
 
