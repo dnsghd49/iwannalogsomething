@@ -20,7 +20,7 @@ This command line application is an employee manager using MySQL database. The u
 
 * [Contributing](#contributing)
 
-* [Tests](#tests)
+* [Start](#Start_script)
 
 * [Questions](#questions)
 
@@ -52,9 +52,9 @@ npm install
 
 contact
 
-## Tests
+## Start_script
 
-To run tests, run the following command:
+To run the app, run the following command:
 
 ```
 node server.js
